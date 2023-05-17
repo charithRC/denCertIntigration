@@ -1,87 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Course Registration</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Messages | Firebase</title>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
-    <h1>Course Registration Form</h1>
-    <form action="submit-form" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br>
+    <div class="container">
+        <form action="" id="contactForm">
+            <div class="alert">Your message sent</div>
 
-        <label for="start-date">Start Date:</label>
-        <input type="date" id="start-date" name="start-date" required><br>
+            <div class="inputBox">
+                <input type="text" id="name" placeholder="Your name...." />
+            </div>
 
-        <label for="end-date">End Date:</label>
-        <input type="date" id="end-date" name="end-date" required><br>
+            <div class="inputBox">
+                <input type="email" id="emailid" placeholder="Your Email....." />
+            </div>
 
-        <label for="course-name">Course Name:</label>
-        <input type="text" id="course-name" name="course-name" required><br>
+            <div class="inputBox">
+                <textarea id="msgContent" cols="30" rows="10" placeholder="Message"></textarea>
+            </div>
 
-        <label for="supervisor-name">Supervisor Name:</label>
-        <input type="text" id="supervisor-name" name="supervisor-name" required><br>
+            <div class="inputBox">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
 
-        <label for="certification-number">Certification Number:</label>
-        <input type="text" id="certification-number" name="certification-number" required><br>
-
-        <input type="submit" value="Submit">
-    </form>
-    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-database.js"></script>
-    <script>
-        // Initialize Firebase
-        const firebaseConfig = {
-            apiKey: "AIzaSyDoNy4z5rgRiL4jkbF-Vt7caZ-RObQkbPM",
-            authDomain: "website-89f67.firebaseapp.com",
-            databaseURL: "https://website-89f67-default-rtdb.asia-southeast1.firebasedatabase.app",
-            projectId: "website-89f67",
-            storageBucket: "website-89f67.appspot.com",
-            messagingSenderId: "559110525214",
-            appId: "1:559110525214:web:25ce1424a997ce465c390f",
-            measurementId: "G-K3X6JYDRNQ"
-        };
-
-        firebase.initializeApp(firebaseConfig);
-
-        // Get a reference to the database
-        const database = firebase.database();
-
-        // Function to handle form submission
-        function handleSubmit(event) {
-            event.preventDefault(); // Prevent the form from submitting and refreshing the page
-
-            // Get form values
-            const name = document.getElementById("name").value;
-            const startDate = document.getElementById("startDate").value;
-            const endDate = document.getElementById("endDate").value;
-            const courseName = document.getElementById("courseName").value;
-            const supervisorName = document.getElementById("supervisorName").value;
-            const certificationNumber = document.getElementById("certificationNumber").value;
-
-            // Save data to Firebase
-            database.ref("certifications").push({
-                name: name,
-                startDate: startDate,
-                endDate: endDate,
-                courseName: courseName,
-                supervisorName: supervisorName,
-                certificationNumber: certificationNumber
-            });
-
-            // Clear the form
-            document.getElementById("myForm").reset();
-
-            // Display success message (optional)
-            alert("Data saved successfully!");
-        }
-
-        // Attach the form submit event listener
-        document.getElementById("myForm").addEventListener("submit", handleSubmit);
-    </script>
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="./mail.js"></script>
 </body>
 
 </html>
