@@ -62,3 +62,13 @@ const firebaseConfig = {
   const getElementVal = (id) => {
     return document.getElementById(id).value;
   };
+
+  var database = firebase.database();
+  var ref = database.ref('https://website-89f67-default-rtdb.asia-southeast1.firebasedatabase.app/contactForm'); 
+  var id = 'NVe2vn0RieSe4vkzmZK';
+
+  ref.child(id).once('value', function(snapshot) {
+    var data = snapshot.val();
+    // 'data' contains the retrieved data for the specified ID
+    console.log(data);
+  });

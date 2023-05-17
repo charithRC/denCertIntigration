@@ -88,6 +88,13 @@
 			height: auto;
 
 		}
+		.CEOSign{
+			position: absolute;
+			top: -35px;
+			left: 100px;
+			width: 200px;
+			height: auto;
+		}
 
 		.signature-option {
 			margin-top: 20px;
@@ -106,12 +113,15 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background: url('hexagon.png') repeat;
+			/* background: url('hexagon.png') repeat; */
 			background-size: 50px 58px;
 			opacity: 0.2;
 			z-index: -1;
 		}
 	</style>
+	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+	
 </head>
 
 <body>
@@ -123,28 +133,28 @@
 			">
 			<h1>Internship <span style="color: #002E67;">Certificate</span></h1>
 			<div class="certificate">
-				<p class="student-name" style="font-family: 'Dancing Script', cursive;">Jane Doe</p>
+				<p class="student-name" id="StudentName" style="font-family: 'Dancing Script', cursive;">Name loading...</p>
 				<p class="internship-details">has successfully completed an internship at Coden on</p>
-				<p class="internship-details">Web Development</p>
-				<p class="internship-details">Duration: June 1, 2023 -
-					August 31, 2023</p>
+				<p class="internship-details" id="Course">Course Loading...</p>
+				<p class="internship-details" id="Duration">Duration: Loading...</p>
 			</div>
 			<div class="signature">
 				<div>
-					<p>John Smith</p>
+					<p id="Supervisor">Loading..</p>
 					<p>Internship Supervisor</p>
 				</div>
 				<div class="signature">
 					<div class="signature-field">
+						<img src="./CEOSign.png" alt="Coden CEO Sign" class="CEOSign">
 						<label for="signature">Signature:</label>
 						<span>_______________________________</span>
-						<p class="certification-number">Certification Number: ABC123XYZ</p>
+						<p class="certification-number" id="certID">Certification Number: Loading..</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
+	<script src="./Certificate.js"></script>
 </body>
 
 </html>
