@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Messages | Firebase</title>
+    <title>Save form</title>
     <link rel="stylesheet" href="./styles.css">
 </head>
 
@@ -15,15 +15,27 @@
             <div class="alert">Your message sent</div>
 
             <div class="inputBox">
-                <input type="text" id="name" placeholder="Your name...." />
+                <input type="text" id="name" placeholder="Name" />
             </div>
 
             <div class="inputBox">
-                <input type="email" id="emailid" placeholder="Your Email....." />
+                <input type="email" id="emailid" placeholder="Email" />
             </div>
 
             <div class="inputBox">
-                <textarea id="msgContent" cols="30" rows="10" placeholder="Message"></textarea>
+                <input id="CourseName" type="text" placeholder="Course Name"></input>
+            </div>
+            <div class="inputBox">
+                <input type="text" id="StartDate" placeholder="Start Date" />
+            </div>
+            <div class="inputBox">
+                <input type="text" id="EndDate" placeholder="End Date" />
+            </div>
+            <div class="inputBox">
+                <input type="text" id="SupervisorName" placeholder="Supervisor Name" />
+            </div>
+            <div class="inputBox">
+                <input type="text" id="CertificationName" placeholder="Certification Number" />
             </div>
 
             <div class="inputBox">
@@ -32,7 +44,9 @@
         </form>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-database.js"></script>
+    
     <script src="./mail.js"></script>
 </body>
 

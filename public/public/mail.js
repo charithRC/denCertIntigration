@@ -8,12 +8,16 @@ const firebaseConfig = {
     appId: "1:559110525214:web:25ce1424a997ce465c390f",
     measurementId: "G-K3X6JYDRNQ"
 };
-  
+  debugger;
   // initialize firebase
-  firebase.initializeApp(firebaseConfig);
+  const test = firebase.initializeApp(firebaseConfig);
   
   // reference your database
-  var contactFormDB = firebase.database().ref("contactForm");
+  try {
+    var contactFormDB = firebase.database().ref("contactForm");
+  } catch (error) {
+    console.log(error)
+  }
   
   document.getElementById("contactForm").addEventListener("submit", submitForm);
   
@@ -22,9 +26,12 @@ const firebaseConfig = {
   
     var name = getElementVal("name");
     var emailid = getElementVal("emailid");
-    var msgContent = getElementVal("msgContent");
-  
-    saveMessages(name, emailid, msgContent);
+    var CourseName = getElementVal("CourseName");
+    var StartDate = getElementVal("StartDate");
+    var EndDate = getElementVal("EndDate");
+    var SupervisorName = getElementVal("SupervisorName");
+    var CertificationName = getElementVal("CertificationName");
+    saveMessages(name, emailid, CourseName,StartDate,EndDate,SupervisorName,CertificationName);
   
     //   enable alert
     document.querySelector(".alert").style.display = "block";
@@ -38,13 +45,17 @@ const firebaseConfig = {
     document.getElementById("contactForm").reset();
   }
   
-  const saveMessages = (name, emailid, msgContent) => {
+  const saveMessages = (name, emailid, CourseName,StartDate,EndDate,SupervisorName,CertificationName) => {
     var newContactForm = contactFormDB.push();
   
     newContactForm.set({
       name: name,
       emailid: emailid,
-      msgContent: msgContent,
+      CourseName:CourseName,
+      StartDate:StartDate,
+      EndDate:EndDate,
+      SupervisorName:SupervisorName,
+      CertificationName:CertificationName
     });
   };
   
