@@ -28,6 +28,7 @@ var data;
 ref.child(id).once('value', function (snapshot) {
     data = snapshot.val();
     console.log(data);
+     // Replace in HTML
     document.getElementById("StudentName").innerHTML = data.name;
     document.getElementById("Course").innerHTML = data.CourseName;
     document.getElementById("Duration").innerHTML = data.StartDate + "-" + data.EndDate;
@@ -35,5 +36,5 @@ ref.child(id).once('value', function (snapshot) {
     document.getElementById("certID").innerHTML = "Certification ID: " +id;
 });
 
-  // Replace in HTML
+ 
 
