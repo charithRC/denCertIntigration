@@ -13,7 +13,7 @@ const test = firebase.initializeApp(firebaseConfig);
 
 // reference your database
 try {
-  var contactFormDB = firebase.database().ref("contactForm");
+  var contactFormDB = firebase.database().ref("CertificateForm");
 } catch (error) {
   console.log(error)
 }
@@ -29,8 +29,8 @@ function submitForm(e) {
   var StartDate = getElementVal("StartDate");
   var EndDate = getElementVal("EndDate");
   var SupervisorName = getElementVal("SupervisorName");
-  var CertificationName = getElementVal("CertificationName");
-  saveMessages(name, emailid, CourseName, StartDate, EndDate, SupervisorName, CertificationName);
+  //var CertificationName = getElementVal("CertificationName");
+  saveMessages(name, emailid, CourseName, StartDate, EndDate, SupervisorName);
 
   //   reset the form
   document.getElementById("contactForm").reset();
@@ -59,5 +59,6 @@ const saveMessages = (name, emailid, CourseName, StartDate, EndDate, SupervisorN
 };
 
 const getElementVal = (id) => {
+  debugger;
   return document.getElementById(id).value;
 };
