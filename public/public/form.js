@@ -30,7 +30,7 @@ function submitForm(e) {
   var EndDate = getElementVal("EndDate");
   var SupervisorName = getElementVal("SupervisorName");
   //var CertificationName = getElementVal("CertificationName");
-  saveMessages(name, emailid, CourseName, StartDate, EndDate, SupervisorNamegit );
+  saveMessages(name, emailid, CourseName, StartDate, EndDate, SupervisorName );
 
   //   reset the form
   document.getElementById("contactForm").reset();
